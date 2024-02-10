@@ -35,3 +35,21 @@ export async function POST(req) {
     })
 
 }
+
+export async function DELETE(req) {
+
+    const id = await req.json()
+
+    console.log(id)
+    
+    const result = await db.employees.delete({
+        where: {
+            id: id 
+        }
+    })
+
+    return NextResponse.json({
+        result 
+    })
+
+}

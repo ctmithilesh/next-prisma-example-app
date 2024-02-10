@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading'
 import { db } from '@/db'
+import Link from 'next/link'
 
 const EmployeeTable = () => {
 
@@ -13,7 +14,7 @@ const EmployeeTable = () => {
 
         fetchEmployees()
 
-    })
+    }, [dataCondition])
 
     const fetchEmployees = async () => {
 
@@ -31,6 +32,7 @@ const EmployeeTable = () => {
                         <th>Name </th>
                         <th>Designation </th>
                         <th>Address </th>
+                        <th>Actions </th>
 
                     </tr>
                 </thead>
@@ -40,6 +42,12 @@ const EmployeeTable = () => {
                             <td>{item.emp_name}</td>
                             <td>{item.emp_designation}</td>
                             <td>{item.emp_address}</td>
+                            <td>
+                                <Link href={`/delete-employee/${item.id}`}>
+                                    Delete
+                                </Link>
+
+                            </td>
                         </tr>
                     )) : <Loading />}
 
