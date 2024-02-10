@@ -10,18 +10,21 @@ export async function GET() {
 
 }
 
-export async function POST() {
-    const empData = {
-        emp_name: "John Oliver",
-        emp_designation: "Java Developer",
-        emp_address: "New York",
-    }
+export async function POST(req) {
 
+    const data = await req.json()
+    const {
+        emp_name,
+        emp_designation,
+        emp_address,
+        
+    } = data 
+    
     const result = await db.employees.create({
         data: {
-            emp_name: empData.emp_name,
-            emp_designation: empData.emp_designation,
-            emp_address: empData.emp_address,
+            emp_name: emp_name,
+            emp_designation: emp_designation,
+            emp_address: emp_address,
         }
     })
 

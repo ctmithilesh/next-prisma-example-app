@@ -1,15 +1,15 @@
 'use client';
 import React from 'react'
+import EmployeeTable from '../components/EmployeeTable'
 import Navigation from '../components/Navigation'
-import AddEmployeeForm from '../components/AddEmployeeForm'
 
-const page = () => {
+const Page = () => {
     return (
         <>
             <Navigation />
-            <AddEmployeeForm />
+            <EmployeeTable />
         </>
     )
 }
 
-export default page
+export default Page
